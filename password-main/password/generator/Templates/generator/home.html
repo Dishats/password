@@ -1,23 +1,94 @@
-<h1 style="text-align: center;">Generate Password</h1>
-<form action="{% url 'password' %}">
-<select name="length" id="">
-    <option value="6">6 characters</option>
-    <option value="7">7 characters</option>
-    <option value="8" selected="selected">8 characters</option>
-    <option value="9">9 characters</option>
-    <option value="10">10 characters</option>
-</select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-<br>
-<br>
-<input type="checkbox" name="uppercase">uppercase
-<br>
-<br>
-<input type="checkbox" name="numbers">numbers
-<br>
-<br>
-<input type="checkbox" name="special">special
-<br>
-<br>
-<input type="submit">
-</form>
+        form {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        select, input[type="checkbox"] {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        br {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="{% url 'password' %}">
+        <h1>Generate Password</h1>
+        <select name="length" id="">
+            <option value="6">6 characters</option>
+            <option value="7">7 characters</option>
+            <option value="8" selected="selected">8 characters</option>
+            <option value="9">9 characters</option>
+            <option value="10">10 characters</option>
+        </select>
+        <br>
+        <label><input type="checkbox" name="uppercase"> Uppercase</label> <br>
+        <label><input type="checkbox" name="numbers"> Numbers</label> <br>
+        <label><input type="checkbox" name="special"> Special</label> <br>
+        <input type="submit" value="Generate">
+    </form>
+</body>
+</html>
